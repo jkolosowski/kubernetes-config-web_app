@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: mybackend-dev-deployment
+  name: mybackend-deployment
 
 spec:
   template:
@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: mybackend-container
-          image: kolosowski/devops-project-backend:dev1.0
+          image: kolosowski/devops-project-backend:prod1.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000

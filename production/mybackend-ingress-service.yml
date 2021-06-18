@@ -2,19 +2,19 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
-  name: mybackend-dev-ingress-service
+  name: mybackend-ingress-service
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 
 spec:
   rules:
-    - host: dev.127-0-0-1.sslip.io
+    - host: prod.127-0-0-1.sslip.io
       http:
         paths:
           - path: /api/?(.*)
             pathType: Prefix
             backend:
               service:
-                name: mybackend-dev-clusterip
+                name: mybackend-clusterip
                 port:
                   number: 5000
