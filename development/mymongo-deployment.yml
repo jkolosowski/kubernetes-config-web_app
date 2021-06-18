@@ -20,7 +20,7 @@ spec:
           image: mongo
           volumeMounts:
             - mountPath: /data/db
-              name: mongo-volume
+              name: mongo-dev-volume
               subPath: mongo
           env:
             - name: MONGO_INITDB_DATABASE
@@ -31,7 +31,7 @@ spec:
           ports:
             - containerPort: 27017
       volumes:
-        - name: mongo-volume
+        - name: mongo-dev-volume
           persistentVolumeClaim:
             claimName: mymongo-dev-pvc
 
