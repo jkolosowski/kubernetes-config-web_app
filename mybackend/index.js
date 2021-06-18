@@ -13,7 +13,7 @@ app.use('/hearts', hearts);
 
 require('dotenv').config();
 const dbConnData = {
-    host: process.env.MONGO_HOST || 'mymongo-dev-clusterip',
+    host: process.env.MONGO_HOST || 'mymongo-clusterip',
     port: process.env.MONGO_PORT || 27017,
     database: process.env.MONGO_DATABASE || 'mymongo'
 };

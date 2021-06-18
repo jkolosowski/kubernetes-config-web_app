@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: myredis-dev-deployment
+  name: myredis-deployment
   labels:
     app: myredis
     type: db
@@ -10,7 +10,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: myredis-dev-pod
+      name: myredis-pod
       labels:
         app: myredis
         type: db

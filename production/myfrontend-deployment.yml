@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: myfrontend-dev-deployment
+  name: myfrontend-deployment
   labels:
     app: myfrontend
 
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myfrontend-container
-          image: kolosowski/devops-project-frontend:dev1.0
+          image: kolosowski/devops-project-frontend:prod1.0
           ports:
             - containerPort: 80
   replicas: 2

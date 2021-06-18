@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: myfrontend-dev-clusterip
+  name: myfrontend-clusterip
 
 spec:
   type: ClusterIP

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: mymongo-dev-deployment
+  name: mymongo-deployment
   labels:
     app: mymongo
     type: db
@@ -10,7 +10,7 @@ metadata:
 spec:
   template:
     metadata:
-      name: mymongo-dev-pod
+      name: mymongo-pod
       labels:
         app: mymongo
         type: db
@@ -20,20 +20,20 @@ spec:
           image: mongo
           volumeMounts:
             - mountPath: /data/db
-              name: mongo-dev-volume
+              name: mongo-volume
               subPath: mongo
           env:
             - name: MONGO_INITDB_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: mymongo-dev-config
+                  name: mymongo-config
                   key: MONGO_INITDB_DATABASE
           ports:
             - containerPort: 27017
       volumes:
-        - name: mongo-dev-volume
+        - name: mongo-volume
           persistentVolumeClaim:
-            claimName: mymongo-dev-pvc
+            claimName: mymongo-pvc
 
   selector:
     matchLabels:

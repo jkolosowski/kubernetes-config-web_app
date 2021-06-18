@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 
 metadata:
-  name: mymongo-dev-pvc
+  name: mymongo-pvc
 
 spec:
   storageClassName: manual
