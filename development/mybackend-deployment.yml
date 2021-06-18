@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: mybackend-dev-deployment
+
+spec:
+  template:
+    metadata:
+      labels:
+        app: mybackend
+    spec:
+      containers:
+        - name: mybackend-container
+          image: kolosowski/devops-project-backend:dev0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mybackend
