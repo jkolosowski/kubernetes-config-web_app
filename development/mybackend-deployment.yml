@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: mybackend-container
-          image: kolosowski/devops-project-backend:dev0.1
+          image: kolosowski/devops-project-backend:dev0.3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000

@@ -9,6 +9,7 @@ const SongAdd = ({ addSong }) => {
 
     const saveSong = (value) => {
         addSong(value.title, value.artist, value.album, value.date);
+        return alert("Song added successfully!");
     };
 
     return (
