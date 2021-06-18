@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: myredis-dev-deployment
+  labels:
+    app: myredis
+    type: db
+
+spec:
+  template:
+    metadata:
+      name: myredis-dev-pod
+      labels:
+        app: myredis
+        type: db
+    spec:
+      containers:
+        - name: myredis-container
+          image: redis
+          ports:
+            - containerPort: 6379
+
+  selector:
+    matchLabels:
+      app: myredis
+      type: db

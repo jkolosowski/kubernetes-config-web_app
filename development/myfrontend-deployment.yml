@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: myfrontend-dev-deployment
+  labels:
+    app: myfrontend
+
+spec:
+  template:
+    metadata:
+      labels:
+        app: myfrontend
+    spec:
+      containers:
+        - name: myfrontend-container
+          image: kolosowski/devops-project-frontend:dev1.0
+          ports:
+            - containerPort: 80
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myfrontend
