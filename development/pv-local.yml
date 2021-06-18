@@ -13,4 +13,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "./"
+    path: "/Users/jakubkolosowski/k8spv-dev"

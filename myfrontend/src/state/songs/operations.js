@@ -3,7 +3,7 @@ import types from './types';
 import { SONGS_REQUEST, SONGS_SUCCESS, SONGS_FAILURE } from './types';
 
 const getSongs = () => (dispatch) => dispatch(createAction({
-    endpoint: 'http://localhost/api/songs',
+    endpoint: 'http://prod.127-0-0-1.sslip.io/api/songs',
     method: 'GET',
     headers: {
         "Accept": "application/json",
@@ -17,7 +17,7 @@ const getSongs = () => (dispatch) => dispatch(createAction({
 }));
 
 const addSong = (title, artist, album, date) => (dispatch) => dispatch(createAction({
-    endpoint: 'http://localhost/api/songs',
+    endpoint: 'http://prod.127-0-0-1.sslip.io/api/songs',
     method: 'POST',
     headers: {
         "Accept": "application/json",
@@ -37,7 +37,7 @@ const addSong = (title, artist, album, date) => (dispatch) => dispatch(createAct
 }));
 
 const deleteSong = (id) => (dispatch) => dispatch(createAction({
-    endpoint: `http://localhost/api/songs/${id}`,
+    endpoint: `http://prod.127-0-0-1.sslip.io/api/songs/${id}`,
     method: 'DELETE',
     headers: {
         "Accept": "application/json",
@@ -51,7 +51,7 @@ const deleteSong = (id) => (dispatch) => dispatch(createAction({
 }));
 
 const editSong = (id, title, artist, album, date) => (dispatch) => dispatch(createAction({
-    endpoint: `http://localhost/api/songs/${id}`,
+    endpoint: `http://prod.127-0-0-1.sslip.io/api/songs/${id}`,
     method: 'PATCH',
     headers: {
         "Accept": "application/json",

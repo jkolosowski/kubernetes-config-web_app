@@ -5,20 +5,32 @@ import { Field, Form, Formik } from 'formik';
 import Heart from 'react-heart';
 
 import operations from '../../state/songs/operations';
+import heartOperations from '../../state/hearts/operations';
 
-const Songs = ({ songs, getSongs, deleteSong, editSong }) => {
+const Songs = ({ songs, hearts, getSongs, getHearts, deleteSong, editSong, addHeart, deleteHeart }) => {
 
     const [ id, setId ] = useState(null);
-    const [active, setActive] = useState(false);
+
+    useEffect(() => {
+        getSongs();
+    }, [songs]);
+
+    useEffect(() => {
+        getHearts();
+    }, [hearts]);
 
     const saveSong = (value) => {
         setId(null);
         editSong(id, value.title, value.artist, value.album, value.date);
-    }
+    };
 
-    useEffect(() => {
-        getSongs()
-    }, [songs]);
+    const heartAction = (id) => {
+        if (hearts.includes(`hearts:${id}`)){
+            deleteHeart(id);
+        } else {
+            addHeart(id);
+        }
+    };
 
     return (
         <div className={"content m-6"}>
@@ -37,7 +49,7 @@ const Songs = ({ songs, getSongs, deleteSong, editSong }) => {
                             Delete
                         </button>
                     </div>
-                    <Heart isActive={active} onClick={() => setActive(!active)} style={{ width: "4rem"}} className={"mt-2"}/>
+                    <Heart isActive={hearts.includes(`hearts:${song._id}`)} onClick={() => heartAction(song._id)} style={{ width: "4rem"}} className={"mt-2"}/>
                     <h4>Title: <b className={"has-text-link-dark"}>{song.title}</b></h4>
                     <h4>Artist: <b className={"has-text-info-dark"}>{song.artist}</b></h4>
                     <p>Album: <b className={"has-text-info"}>{song.album}</b></p>
@@ -112,7 +124,8 @@ const Songs = ({ songs, getSongs, deleteSong, editSong }) => {
 
 const mapStateToProps = (state) => {
     return {
-        songs: state.songs
+        songs: state.songs,
+        hearts: state.hearts
     }
 }
 
@@ -121,9 +134,14 @@ const mapDispatchToProps = (dispatch) => {
         getSongs: () => {
             dispatch(operations.getSongs());
         },
+        getHearts: () => {
+            dispatch(heartOperations.getHearts());
+        },
         deleteSong: (id) => dispatch(operations.deleteSong(id)),
         editSong: (id, title, artist, album, date) =>
-            dispatch(operations.editSong(id, title, artist, album, date))
+            dispatch(operations.editSong(id, title, artist, album, date)),
+        addHeart: (id) => dispatch(heartOperations.addHeart(id)),
+        deleteHeart: (id) => dispatch(heartOperations.deleteHeart(id))
     }
 }
 
