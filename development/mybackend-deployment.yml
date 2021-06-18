@@ -12,11 +12,11 @@ spec:
     spec:
       containers:
         - name: mybackend-container
-          image: kolosowski/devops-project-backend:dev0.3
+          image: kolosowski/devops-project-backend:dev1.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: mybackend

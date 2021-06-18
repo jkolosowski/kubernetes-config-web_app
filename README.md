@@ -1,6 +1,6 @@
 # Project
 
-### Version: dev0.3
+### Version: dev1.0
   
 Firstly, you need to specify Your path to Persistent Volume -> go to *development* directory
 -> open *pv-local.yml* file -> `spec` -> `hostPath` -> `path` -> type Your path in `' '`

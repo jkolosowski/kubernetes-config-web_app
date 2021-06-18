@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: myfrontend-container
-          image: kolosowski/devops-project-frontend:dev0.3
+          image: kolosowski/devops-project-frontend:dev1.0
           ports:
             - containerPort: 80
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: myfrontend
