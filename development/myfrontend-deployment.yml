@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: myfrontend-container
-          image: kolosowski/devops-project-frontend:dev0.1
+          image: kolosowski/devops-project-frontend:dev0.3
           ports:
             - containerPort: 80
   replicas: 1

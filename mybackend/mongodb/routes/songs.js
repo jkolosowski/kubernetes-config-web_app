@@ -24,7 +24,6 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newSong = await Song.create({ ...req.body });
-        console.log(newSong);
         return res.send(newSong);
     } catch (error) {
         return res.send({ error: error.message });
